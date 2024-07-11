@@ -13,10 +13,3 @@ Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
 });
 
-Broadcast::channel('my-channel', function ($user) {
-    return true; // Aquí puedes definir la lógica para autorizar el acceso al canal
-});
-
-Broadcast::channel('chat', function ($user, $id) {
-    return true; 
-});
