@@ -17,7 +17,6 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
-
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
@@ -35,9 +34,6 @@ Route::get('/chat', function () {
 })->name('chat')->middleware('throttle:global');
 
 Route::post('/send_message', [ChatController::class, 'sendMessageEvent'])->middleware(['auth', 'verified']);
-
-// Ruta para disparar el evento desde el controlador
-Route::get('/trigger-event', [EventController::class, 'triggerEvent']);
 
 // Dashboard Route
 Route::get('/dashboard', function () {
